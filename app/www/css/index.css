@@ -9,6 +9,12 @@ body {
 	font-weight: 300;
 	font-size: 15px;
 	height: 100%;
+	background-color: #eeeeee;
+}
+
+.content {
+	margin-left: calc((100% - 400px) / 2);
+	width: 400px;
 }
 
 .tick {
