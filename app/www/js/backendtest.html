@@ -1,0 +1,20 @@
+<html>
+<head>
+	<script src="jquery.min.js"></script>
+	<script src="back-end/getter.js"></script>
+</head>
+<body>
+	<p id = "test"></p>
+
+	<script type="text/javascript">
+		var callback = function () {
+			$("<p>#test").html("hi");
+		}
+
+		var usernames = [];
+		usernames.push("vogonjeltz101");
+
+		start (usernames, callback);
+	</script>
+</body>
+</html>
