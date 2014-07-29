@@ -1,0 +1,1 @@
+$('body').hammer().on("swipeleft", function(ev) { console.log(ev); });
