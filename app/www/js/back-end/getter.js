@@ -1,27 +1,72 @@
-function getTweets (users, callback) {
+function startGet (usernames, callback) {
+	var unames = usernames.length;
+	var count = 0;
+	var done = [];
+
+	var donefunc = function (error, data) {
+		console.log("callback")
+		if (error) {
+			console.log(error);
+			//There is an error
+			//no data is returned
+			callback (error, null);
+			return;
+		} else {
+			//run as normal
+			count ++;
+			//adding arrays together
+			for (var i = 0; i < data.length; i++)  {
+				done.push(data[i]);		
+			}
+			if (count == unames) {
+				//Now sort
+				done.sort(compare);
+				console.log("DONE");
+				callback (false, done);
+			}
+
+			
+		}
+	}
+
+	getTweets (usernames, donefunc);
+}
+
+//Function to compare tweets for sorting
+function compare(a,b) {
+  if (a.id < b.id)
+     return 1;
+  if (a.id > b.id)
+    return -1;
+  return 0;
+}
+
+
+function getTweets (users, callbackfunc) {
 	for (var i = 0; i < users.length; i++) {
 		get (users[i], function(error, done) {
-			callback(error, done);
+			callbackfunc(error, done);
 		});
 	}
 }
 
-function get (user, callback) {
-	var url ="http://www.zakcutner.uk/whatcandidate/api.php?callback=?&name="+user;
+function get (user, callbackfunc) {
+	var url ="http://www.zakcutner.uk/whatcandidate/api-tweets.php?callback=?&name="+user;
 	console.log(url);
 
 	$.getJSON(url, function(data) {
 		if (data.hasOwnProperty("errors")) {
+			console.log(data);
 			callback (true, null);//error
 			return;
 		}
 		trim (data, function(error, done) {
-			callback(error, done);
+			callbackfunc(error, done);
 		});
 	});
 }
 
-function trim (data, callabck) {
+function trim (data, callbackfunc) {
 
 	var done = [];
 	for (var i = 0; i < data.length; i++) {
@@ -29,7 +74,7 @@ function trim (data, callabck) {
 	}
 
 	algo (done, function (error, done) {
-		callback(error, done);
+		callbackfunc(error, done);
 	});
 
 }
@@ -48,7 +93,7 @@ function algo (data, callback) {
 		done.push(data[i]);
 	}
 
-	callback (done, false);
+	callback (false, done);
 
 }
 
