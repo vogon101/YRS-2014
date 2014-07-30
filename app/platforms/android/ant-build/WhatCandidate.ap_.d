@@ -36,10 +36,16 @@ C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\img \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\index.html \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\css\index.css \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\img\thumbdown.png \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\img\thumbup.png \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\back-end \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\backendtest.html \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\hammer.min.js \
-C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\index.js \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\jquery.hammer.js \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\jquery.min.js \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\jquery.touchSwipe.min.js \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\pixelate.min.js \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\swipe.js \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\tweet.js \
+C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\assets\www\js\back-end\getter.js \
 C:\Users\Zak\My Documents\GitHub\YRS-2014\app\platforms\android\ant-build\AndroidManifest.xml \

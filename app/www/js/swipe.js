@@ -1,5 +1,5 @@
 var swipe = false;
-var colours = ['a87edf', '89e18a', 'd26b4a', '7bd0c6'];
+var colours = ['a87edf', '89e18a', 'd26b4a', '7bd0c6', 'd4bc4e'];
 
 $(function() {
 	for(var i = 0; i < 40; i++) {

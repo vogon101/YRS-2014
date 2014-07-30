@@ -1,9 +1,39 @@
+html {
+	overflow: hidden;
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	font-size: 15px;
+	height: 100%;
+	background-color: #eeeeee;
 }
+
+.content {
+	margin-left: calc((100% - 400px) / 2);
+	width: 400px;
+}
+
+.tick {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 130px;
+	background-color: #adddc0;
+}
+
+.cross {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 80px;
+	height: 130px;
+	background-color: #e28c8c;
+}		
 
 ul {
 	margin: 0;
@@ -11,12 +41,52 @@ ul {
 	list-style-type: none;
 }
 
-li {
-	padding: 30px 30px 0 30px;
-	height: 80px;
+ul li {
+	position: relative;
 	overflow: hidden;
+	border-bottom: solid 1px #eeeeee;
 }
 
-li:nth-child(even) {
-	background-color: #eee;
+.tweet {
+	margin: 0;
+	height: 130px;
+	z-index: 100;
+	position: relative;
+	background-color: #ffffff;
+	color: #333333;
 }
+
+.text {
+	height: 100px;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 15px 30px 15px 0;
+	/*padding: 15px 30px 15px 145px;*/
+}
+
+.icon-outer {
+	height: 130px;
+    width: 100px;
+    overflow: hidden;
+    float: left;
+}
+
+.icon-middle {
+	height: 70px;
+    width: 70px;
+    background-color: #eeeeee;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.icon {
+	height: 30px;
+	width: 30px;
+	margin-left: 20px;
+    margin-top: 20px;
+}
+
+/*.blur {
+	text-shadow: 0 0 8px #333333;
+	color: transparent;
+}*/
