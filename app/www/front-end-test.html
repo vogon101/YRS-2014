@@ -3,23 +3,57 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="js/swipe.js"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Candidate', 'Score', {role:'style'}],
-          ['Karen P Buck',  5, colours[0]],
-          ['Lindsey Hall',  -7, colours[1]],
-        ]);
+    var candidates = [{"screen":"KarenPBuck", "name":"Karen P Buck", "party":"Labour"}{"screen":"Lindsey4MP": "Lindsey Hall"}];
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Candidate", "Score", { role: "style" } ],
+        ["Karen P Buck", 8, colours[0]],
+        ["Lindsey Hall", -10, colours[1]],
+      ]);
 
-        var options = {
-          title: 'Company Performance',
-          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
-        };
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
 
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+      var options = {
+        width: 600,
+        annotations: {
+          textStyle: {
+            fontName: 'Lato',
+            fontSize: 18
+          }
+        },
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+
+      // Every time the table fires the "select" event, it should call your
+      // selectHandler() function.
+      google.visualization.events.addListener(chart, 'select', selectHandler);
+
+      function selectHandler() {
+        var selectedItem = chart.getSelection()[0];
+        if (selectedItem) {
+          var value = data.getValue(selectedItem.row, 0);
+          $.each(candidates, function (i, stuff) {
+             if (value == candidates[i].name) {
+                  showCandidate(candidates[i]);
+             }
+          })
+        }
       }
+
+    }//end function
+  </script>
+<div id="barchart_values" style="width: 900px; height: 300px;"></div>
     </script>
   </head>
   <body>
