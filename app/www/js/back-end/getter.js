@@ -4,9 +4,7 @@ function startGet (usernames, callback) {
 	var done = [];
 
 	var donefunc = function (error, data) {
-		console.log("callback")
 		if (error) {
-			console.log(error);
 			//There is an error
 			//no data is returned
 			callback (error, null);
@@ -21,7 +19,6 @@ function startGet (usernames, callback) {
 			if (count == unames) {
 				//Now sort
 				done.sort(compare);
-				console.log("DONE");
 				callback (false, done);
 			}
 
@@ -52,11 +49,9 @@ function getTweets (users, callbackfunc) {
 
 function get (user, callbackfunc) {
 	var url ="http://www.zakcutner.uk/whatcandidate/api-tweets.php?callback=?&name="+user;
-	console.log(url);
 
 	$.getJSON(url, function(data) {
 		if (data.hasOwnProperty("errors")) {
-			console.log(data);
 			callback (true, null);//error
 			return;
 		}
