@@ -85,7 +85,7 @@ ul li {
 }
 
 .hide {
-	text-shadow: 0 0 6px #333333;
+	text-shadow: 0 0 8px #333333;
 	color: transparent;
 }
 
@@ -119,11 +119,27 @@ a {
 }
 
 .candidate {
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
-	position: fixed;
-	width: 100%;
+	width: 80%;
 	background-color: #eeeeee;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	bottom: 0;
+	z-index: 100000;
+}
+
+.stats-header {
+	font-size: 18px;
+	margin-left: 4px;
+}
+
+.stats-info {
+	margin-left: 4px;
+}
+
+@media screen {
+	body {background-color: #eeeeee;}
+	.tweets {width: 400px; margin-left: auto; margin-right: auto;}
 }

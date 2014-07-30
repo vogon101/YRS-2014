@@ -1,11 +1,81 @@
+var candidates = [{"screen": "KarenPBuckMP", "name": "Karen Buck", "party": "Labour"}, {"screen": "Lindsey4MP", "name": "Lindsey Hall", "party": "Conservative"}];
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+
+function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+		["Candidate", "Score", { role: "style" } ],
+		["Karen P Buck", 15, 'opacity: 0.2'],
+		["Lindsey Hall", -10, 'opacity: 0.2'],
+		["Lindsey Hall", 5, 'opacity: 0.2']
+		]);
+
+	var view = new google.visualization.DataView(data);
+
+	view.setColumns([
+		0,
+		1,
+		{
+			calc: "stringify",
+			sourceColumn: 1,
+			type: "string",
+			role: "annotation"
+		},
+		2
+	]);
+
+	var options = {
+		chartArea: {width: '100%', height: '100%'},
+		bar: {groupWidth: "60%"},
+        legend: { position: "none" },
+		vAxis:{
+			baselineColor: '#fff',
+			gridlineColor: '#fff',
+			textPosition: 'none'
+		},
+		hAxis:{
+			baselineColor: 'transparent',
+			gridlines:{count: -1}
+		},
+		annotations: {
+			textStyle: {
+				fontSize: 13,
+				color: '#871b47',
+				opacity: 0.8
+			}
+		},
+		fontName: 'Lato Light',
+		'tooltip' : {
+			trigger: 'none'
+		}
+	};
+
+	var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+	chart.draw(view, options);
+
+	google.visualization.events.addListener(chart, 'select', selectHandler);
+
+	function selectHandler() {
+		showCandidate(candidates[chart.getSelection()[0].row]);
+	}
+}
+
+function showCandidate(data) {
+	var twitter = '@' + data.screen;
+	var name = data.name;
+	var party = data.party + ' Party';
+	console.log(twitter);
+	console.log(party);
+	console.log(name);
+}
+
 var swipe = false;
 var colours = ['a87edf', '89e18a', 'd26b4a', '7bd0c6', 'd4bc4e'];
 
 $(function() {
 	var usernames = ['KarenPBuckMP', 'Lindsey4WNorth'];
-
-	$()
-
+	
 	if(!localStorage.stats) {
 		var stats = new Object();
 		$.each(usernames, function(index, value) {
