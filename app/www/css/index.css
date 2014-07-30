@@ -86,7 +86,7 @@ ul li {
     margin-top: 20px;
 }
 
-/*.blur {
-	text-shadow: 0 0 8px #333333;
+.hide {
+	text-shadow: 0 0 6px #333333;
 	color: transparent;
-}*/
+}
