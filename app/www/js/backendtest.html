@@ -7,8 +7,15 @@
 	<p id = "test"></p>
 
 	<script type="text/javascript">
-		var callback = function () {
-			$("<p>#test").html("hi");
+		var callback = function (error, data) {
+			if (error) {
+				//execute error code	
+				console.log("errors");
+			} else {
+				//run as normal
+				console.log("succesful callback");
+				console.log(data);
+			}
 		}
 
 		var usernames = [];
