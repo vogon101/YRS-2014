@@ -78,12 +78,12 @@ function algo (data, callback) {
 
 	var done = [];
 	for (var i = 0; i < data.length; i++) {
-
+		var replace = "<span class='hide'></span>";
 		var search = new RegExp(data[i].user.name, "ig");
-		data[i].text = data[i].text.replace(search, "----");
+		data[i].text = data[i].text.replace(search, replace);
 
 		var search = new RegExp(data[i].user.screen_name, "ig");
-		data[i].text = data[i].text.replace(search, "----");
+		data[i].text = data[i].text.replace(search, replace);
 
 		done.push(data[i]);
 	}
