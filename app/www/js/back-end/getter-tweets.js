@@ -51,7 +51,7 @@ function getTweets (users, callbackfunc) {
 
 function get (user, callbackfunc) {
 	var url ="http://www.zakcutner.uk/whatcandidate/api-tweets.php?callback=?&name="+user;
-	
+
 	$.getJSON(url, function(data) {
 		if (data.hasOwnProperty("errors")) {
 			callbackfunc (true, null);//error
@@ -81,7 +81,7 @@ function algo (data, callback) {
 	var names =["labour", "conservative", "tory", "liberal democrat", "libdem", "bnp", "ukip", "green party"]; 
 	var done = [];
 	for (var i = 0; i < data.length; i++) {
-		var replace = "<span class='hide'>dshbfjhsdb</span>";
+		var replace = "<span class='hide'>CENSORED</span>";
 
 		data[i].text = data[i].text.replace(data[i].user.screen_name, replace);
 		data[i].text = data[i].text.replace(data[i].user.name, replace);
