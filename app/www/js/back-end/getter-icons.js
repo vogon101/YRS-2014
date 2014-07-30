@@ -40,7 +40,7 @@ function get (user, callbackfunc) {
 
 function trim (data, callbackfunc) {
 
-	var done = {"name":data.screen_name, "image":data.profile_image_url};
+	var done = {"screenname":data.screen_name, "image":data.profile_image_url, "realname": data.name};
 	callbackfunc(false, done)
 
 }
