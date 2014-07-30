@@ -2,9 +2,29 @@ var swipe = false;
 var colours = ['a87edf', '89e18a', 'd26b4a', '7bd0c6', 'd4bc4e'];
 
 $(function() {
-	for(var i = 0; i < 40; i++) {
-		$('li:nth-child(2)').after('<li><div class="tweet"><div class="icon-outer"><div class="icon-middle"><img class="icon"/></div></div><div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu felis eget enim iaculis bibendum eget id felis. Integer risus cras amet.</div></div></li>');
+	if(!localStorage.stats) {
+		localStorage.stats = '{"conservative": 0, "labour": 0}';	
 	}
+
+	var usernames = ['vogonjeltz101', 'CashClamber', 'KarenPBuckMP', 'WCandidate'];
+
+	startGet (usernames, function(error, data) {
+		if(!error) {
+			$.each(data, function(index, value) {
+				var url = 'http://identicon.org/?t=' + Math.random().toString(36).substr(2, 5) + '&s=30&c=' + colours[index % colours.length];
+				if(index == 0) {
+					var element = $('<li class="conservative"><div class="tweet active"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div><div class="tick"></div><div class="cross"></div></li>')
+				}
+				else {
+					var element = $('<li class="conservative"><div class="tweet"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div></li>');
+				}
+				$('ul').append(element);
+			});
+		}
+		else {
+			console.log('Error fetching Twitter data!')
+		}
+	});
 
 	$('html').swipe({
 		swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
@@ -25,6 +45,21 @@ $(function() {
 				}
 			}
 			else if(direction == 'up') {
+				switch(swipe) {
+					case 'left':
+						var result = -1;
+						break;
+					case 'right':
+						var result = 1;
+						break;
+					default:
+						var result = 0;
+				}
+
+				var stats = JSON.parse(localStorage.stats);
+				stats[$('.tweet.active').parent().attr('class')] += result;
+				localStorage.stats = JSON.stringify(stats);
+
 				$('.tweet.active').parent().animate({marginTop: '-131px'}, 200, function() {
 					$(this).remove();
 					swipe = false;
@@ -33,11 +68,5 @@ $(function() {
 			}
 		},
 		threshhold: 0
-	});
-
-	$('img.icon').each(function(index) {
-		var url = 'http://identicon.org/?t=' + Math.random().toString(36).substr(2, 5) + '&s=30&c=' + colours[index % colours.length];
-		$(this).attr('src', url);
-		console.log();
 	});
 });
