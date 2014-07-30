@@ -9,12 +9,6 @@ body {
 	font-weight: 300;
 	font-size: 15px;
 	height: 100%;
-	background-color: #eeeeee;
-}
-
-.content {
-	margin-left: calc((100% - 400px) / 2);
-	width: 400px;
 }
 
 .tick {
@@ -97,4 +91,39 @@ ul li {
 
 a {
 	color: #7bd0c6;
+}
+
+.stats {
+	/*display: none;*/
+	position: absolute;
+	top: 0;
+	height: 100%;
+	z-index: 200;
+	background-color: #ffffff;
+	width: 100%;
+	margin-left: 100%;
+}
+
+.timer {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #eeeeee;
+	text-align: center;
+	font-size: 18px;
+}
+
+.emph {
+	font-size: 24px;
+	font-weight: 700;
+	color: #d4bc4e;
+}
+
+.candidate {
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	background-color: #eeeeee;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	bottom: 0;
 }

@@ -2,21 +2,27 @@ var swipe = false;
 var colours = ['a87edf', '89e18a', 'd26b4a', '7bd0c6', 'd4bc4e'];
 
 $(function() {
-	if(!localStorage.stats) {
-		localStorage.stats = '{"conservative": 0, "labour": 0}';	
-	}
-
 	var usernames = ['KarenPBuckMP', 'Lindsey4WNorth'];
+
+	$()
+
+	if(!localStorage.stats) {
+		var stats = new Object();
+		$.each(usernames, function(index, value) {
+			stats[value] = 0 
+		});
+		localStorage.stats = JSON.stringify(stats);
+	}
 
 	startGet(usernames, function(error, data) {
 		if(!error) {
 			$.each(data, function(index, value) {
 				var url = 'http://identicon.org/?t=' + Math.random().toString(36).substr(2, 5) + '&s=30&c=' + colours[index % colours.length];
 				if(index == 0) {
-					var element = $('<li class="conservative"><div class="tweet active"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div><div class="tick"></div><div class="cross"></div></li>')
+					var element = $('<li class="' + value.user.screen_name + '"><div class="tweet active"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div><div class="tick"></div><div class="cross"></div></li>')
 				}
 				else {
-					var element = $('<li class="conservative"><div class="tweet"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div></li>');
+					var element = $('<li class="' + value.user.screen_name + '"><div class="tweet"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div></li>');
 				}
 				$('ul').append(element);
 				element.linkify();
@@ -29,7 +35,11 @@ $(function() {
 
 	$('html').swipe({
 		swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-			if((direction == 'left' || direction == 'right') && direction != swipe) {
+			if(direction == 'down' && fingerCount == 0) {
+				$('.tweets').animate({marginLeft: '-100%', marginRight: '100%'}, 400);
+				$('.stats').animate({marginLeft: '0'}, 400);
+			}
+			else if((direction == 'left' || direction == 'right') && direction != swipe) {
 				if(swipe) {
 					$('.tweet.active').animate({marginRight: '0', marginLeft: '0'}, 100);
 					swipe = false;
