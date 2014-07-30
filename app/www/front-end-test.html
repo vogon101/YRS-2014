@@ -1,16 +1,17 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/swipe.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/tweets.js"></script>
     <script type="text/javascript">
-    var candidates = [{"screen":"KarenPBuck", "name":"Karen P Buck", "party":"Labour"}{"screen":"Lindsey4MP": "Lindsey Hall"}];
+    var candidates = [{"screen":"KarenPBuck", "name":"Karen P Buck", "party":"Labour"},{"screen":"Lindsey4MP", "name":"Lindsey Hall"}];
     google.load("visualization", "1", {packages:["corechart"]});
     google.setOnLoadCallback(drawChart);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["Candidate", "Score", { role: "style" } ],
         ["Karen P Buck", 8, colours[0]],
-        ["Lindsey Hall", -10, colours[1]],
+        ["Lindsey Hall", -100, colours[1]],
       ]);
 
       var view = new google.visualization.DataView(data);
@@ -23,13 +24,7 @@
 
       var options = {
         width: 600,
-        annotations: {
-          textStyle: {
-            fontName: 'Lato',
-            fontSize: 18
-          }
-        },
-        bar: {groupWidth: "95%"},
+        bar: {groupWidth: "50%"},
         legend: { position: "none" },
       };
       var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
