@@ -1,4 +1,4 @@
-function start (users, callback) {
+function getTweets (users, callback) {
 	for (var i = 0; i < users.length; i++) {
 		get (users[i], function(error, done) {
 			callback(error, done);
@@ -12,7 +12,7 @@ function get (user, callback) {
 
 	$.getJSON(url, function(data) {
 		if (data.hasOwnProperty("errors")) {
-			callback (true);//error
+			callback (true, null);//error
 			return;
 		}
 		trim (data, function(error, done) {
@@ -48,18 +48,7 @@ function algo (data, callback) {
 		done.push(data[i]);
 	}
 
-	dbin(done, function (error, done) {
-		callback(error, done);
-	});
+	callback (done, false);
 
 }
 
-function dbin (data, callback) {
-	
-	done = data;
-
-
-
-	callback(false, done);//no errors
-
-}
