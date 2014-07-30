@@ -1,7 +1,7 @@
 <html>
 <head>
 	<script src="jquery.min.js"></script>
-	<script src="back-end/getter.js"></script>
+	<script src="back-end/getter-icons.js"></script>
 </head>
 <body>
 	<p id = "test"></p>
@@ -14,9 +14,10 @@
 
 		var callbackfuncfinal = function (error, done) {
 			console.log(done);
+			console.log(error);
 		}
 
-		startGet (usernames, callbackfuncfinal);
+		startGetIcons (usernames, callbackfuncfinal);
 	</script>
 </body>
 </html>
