@@ -4,7 +4,11 @@ function startGetIcons (usernames, callback) {
 	var done = [];
 
 	var donefunc = function (error, data) {
-		callback (error, data);
+		count++;
+		done.push(data);
+		if (count == unames) {
+			callback (error, done);
+		}
 	}
 
 	getIcons (usernames, donefunc);
@@ -36,7 +40,7 @@ function get (user, callbackfunc) {
 
 function trim (data, callbackfunc) {
 
-	cosole.log(data);
-	callbackfunc(false, data)
+	var done = {"name":data.screen_name, "image":data.profile_image_url};
+	callbackfunc(false, done)
 
 }

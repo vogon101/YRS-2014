@@ -85,6 +85,7 @@ function algo (data, callback) {
 		data[i].text = data[i].text.replace(data[i].user.screen_name, replace);
 		data[i].text = data[i].text.replace(data[i].user.name, replace);
 
+
 		done.push(data[i]);
 	}
 
