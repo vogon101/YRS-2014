@@ -56,6 +56,10 @@ ul li {
 	color: #333333;
 }
 
+.tweet.active {
+	font-weight: 400;
+}
+
 .text {
 	height: 100px;
 	display: table-cell;
@@ -89,4 +93,8 @@ ul li {
 .hide {
 	text-shadow: 0 0 6px #333333;
 	color: transparent;
+}
+
+a {
+	color: #7bd0c6;
 }

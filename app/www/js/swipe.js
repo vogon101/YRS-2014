@@ -6,7 +6,7 @@ $(function() {
 		localStorage.stats = '{"conservative": 0, "labour": 0}';	
 	}
 
-	var usernames = ['vogonjeltz101', 'CashClamber', 'KarenPBuckMP', 'WCandidate'];
+	var usernames = ['KarenPBuckMP', 'Lindsey4WNorth'];
 
 	startGet(usernames, function(error, data) {
 		if(!error) {
@@ -19,6 +19,7 @@ $(function() {
 					var element = $('<li class="conservative"><div class="tweet"><div class="icon-outer"><div class="icon-middle"><img class="icon" src="' + url + '"/></div></div><div class="text">' + value.text + '</div></div></li>');
 				}
 				$('ul').append(element);
+				element.linkify();
 			});
 		}
 		else {
