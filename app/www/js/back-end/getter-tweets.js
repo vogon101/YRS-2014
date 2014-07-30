@@ -1,3 +1,5 @@
+var search;
+
 function startGet (usernames, callback) {
 	var unames = usernames.length;
 	var count = 0;
@@ -80,11 +82,8 @@ function algo (data, callback) {
 	for (var i = 0; i < data.length; i++) {
 		var replace = "<span class='hide'>dshbfjhsdb</span>";
 
-		var search = new RegExp(data[i].user.name, "ig");
-		data[i].text = data[i].text.replace(search, replace);
-
-		var search = new RegExp(data[i].user.screen_name, "ig");
-		data[i].text = data[i].text.replace(search, replace);
+		data[i].text = data[i].text.replace(data[i].user.screen_name, replace);
+		data[i].text = data[i].text.replace(data[i].user.name, replace);
 
 		done.push(data[i]);
 	}

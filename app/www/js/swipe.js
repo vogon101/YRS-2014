@@ -8,7 +8,7 @@ $(function() {
 
 	var usernames = ['vogonjeltz101', 'CashClamber', 'KarenPBuckMP', 'WCandidate'];
 
-	startGet (usernames, function(error, data) {
+	startGet(usernames, function(error, data) {
 		if(!error) {
 			$.each(data, function(index, value) {
 				var url = 'http://identicon.org/?t=' + Math.random().toString(36).substr(2, 5) + '&s=30&c=' + colours[index % colours.length];
