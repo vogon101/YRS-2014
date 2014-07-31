@@ -23,8 +23,8 @@ $(function() {
 	}
 
 	var getStats = JSON.parse(localStorage.stats);
-	$('div.stats:eq(0)').append('<p style="margin: 0 0 -2px 0;"><span class="direction">' + getStats['KarenPBuckMP']['direction'] + '</span>&nbsp;<span class="score">' + getStats['KarenPBuckMP']['score'] + '</span></p><span style="font-size: 14px; line-height: 5px"><p><span class="likes">' + getStats['KarenPBuckMP']['all-likes'] + '</span> Likes</p><p><span class="dislike">' + getStats['KarenPBuckMP']['all-dislikes'] + '</span> Disklikes</p></span>');
-	$('div.stats:eq(1)').append('<p style="margin: 0 0 -2px 0;"><span class="direction">' + getStats['Lindsey4WNorth']['direction'] + '</span>&nbsp;<span class="score">' + getStats['Lindsey4WNorth']['score'] + '</span></p><span style="font-size: 14px; line-height: 5px"><p><span class="likes">' + getStats['Lindsey4WNorth']['all-likes'] + '</span> Likes</p><p><span class="dislike">' + getStats['Lindsey4WNorth']['all-dislikes'] + '</span> Disklikes</p></span>');
+	$('div.stats:eq(0)').append('<p style="margin: 0 0 -2px 0;"><span class="direction">' + getStats.KarenPBuckMP['direction'] + '</span>&nbsp;<span class="score">' + getStats.KarenPBuckMP['score'] + '</span></p><span style="font-size: 14px; line-height: 5px"><p><span class="likes">' + getStats.KarenPBuckMP['all-likes'] + '</span> Likes</p><p><span class="dislike">' + getStats.KarenPBuckMP['all-dislikes'] + '</span> Disklikes</p></span>');
+	$('div.stats:eq(1)').append('<p style="margin: 0 0 -2px 0;"><span class="direction">' + getStats.Lindsey4WNorth['direction'] + '</span>&nbsp;<span class="score">' + getStats.Lindsey4WNorth['score'] + '</span></p><span style="font-size: 14px; line-height: 5px"><p><span class="likes">' + getStats.Lindsey4WNorth['all-likes'] + '</span> Likes</p><p><span class="dislike">' + getStats.Lindsey4WNorth['all-dislikes'] + '</span> Disklikes</p></span>');
 
 	startGet(usernames, function(error, data) {
 		if(!error) {
@@ -48,6 +48,7 @@ $(function() {
 	$('html').swipe({
 		swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
 			if(direction == 'down') {
+
 				activeTweet = $('.tweet.active');
 				activeTweet.removeClass('active');
 				$('li.candidate-entry').animate({marginTop: '0'}, 400);
@@ -90,11 +91,11 @@ $(function() {
 					stats[$('.tweet.active').parent().attr('class')]['score'] += result;
 					stats[$('.tweet.active').parent().attr('class')]['today-score'] += result;
 
-					if(stats[$('.tweet.active').parent().attr('class')]['today-score'] < stats[$('.tweet.active').parent().attr('class')]['yesterday-score']) {
-						stats[$('.tweet.active').parent().attr('class')]['direction'] = '&#x25BC;';
+					if(stats[$('.tweet.active').parent().attr('class')]['today-score'] > stats[$('.tweet.active').parent().attr('class')]['yesterday-score']) {
+						stats[$('.tweet.active').parent().attr('class')]['direction'] = '&#x25B2;';
 					}
 					else {
-						stats[$('.tweet.active').parent().attr('class')]['direction'] = '&#x25B2;';
+						stats[$('.tweet.active').parent().attr('class')]['direction'] = '&#x25BC;';
 					}
 
 					if (result == 1) {

@@ -59,7 +59,6 @@ ul li {
 	display: table-cell;
 	vertical-align: middle;
 	padding: 15px 30px 15px 0;
-	/*padding: 15px 30px 15px 145px;*/
 }
 
 .icon-outer {
@@ -93,8 +92,9 @@ a {
 	color: #7bd0c6;
 }
 
-.candidate-border {
+li.candidate-entry {
 	border: 0;
+	margin-top: -130px;
 }
 
 .candidate {
@@ -116,11 +116,21 @@ a {
 .info {
 	position: absolute;
 	left: 0;
+	line-height: 25px;
+	height: 80px;
+	width: 120px;
+	padding: 25px;
 }
 
 .stats {
 	position: absolute;
 	right: 0;
+	height: 80px;
+	width: 180px;
+	background-color: rgba(35, 35, 35, 0.2);
+	padding: 25px;
+	font-size: 30px;
+	text-align: center;
 }
 
 @media screen {

@@ -9,12 +9,6 @@ body {
 	font-weight: 300;
 	font-size: 15px;
 	height: 100%;
-	background-color: #eeeeee;
-}
-
-.content {
-	margin-left: calc((100% - 400px) / 2);
-	width: 400px;
 }
 
 .tick {
@@ -23,7 +17,7 @@ body {
 	left: 0;
 	width: 80px;
 	height: 130px;
-	background-color: #adddc0;
+	background-color: #89e18a;
 }
 
 .cross {
@@ -32,7 +26,7 @@ body {
 	right: 0;
 	width: 80px;
 	height: 130px;
-	background-color: #e28c8c;
+	background-color: #d26b4a;
 }		
 
 ul {
@@ -56,12 +50,15 @@ ul li {
 	color: #333333;
 }
 
+.tweet.active {
+	font-weight: 400;
+}
+
 .text {
 	height: 100px;
 	display: table-cell;
 	vertical-align: middle;
 	padding: 15px 30px 15px 0;
-	/*padding: 15px 30px 15px 145px;*/
 }
 
 .icon-outer {
@@ -86,7 +83,57 @@ ul li {
     margin-top: 20px;
 }
 
-/*.blur {
+.hide {
 	text-shadow: 0 0 8px #333333;
 	color: transparent;
-}*/
+}
+
+a {
+	color: #7bd0c6;
+}
+
+li.candidate-entry {
+	border: 0;
+	margin-top: -130px;
+}
+
+.candidate {
+	margin: 0;
+	height: 130px;
+	z-index: 100;
+	position: relative;
+	color: #ffffff;
+}
+
+.purple {
+	background-color: #a87edf;
+}
+
+.green {
+	background-color: #89e18a;
+}
+
+.info {
+	position: absolute;
+	left: 0;
+	line-height: 25px;
+	height: 80px;
+	width: 120px;
+	padding: 25px;
+}
+
+.stats {
+	position: absolute;
+	right: 0;
+	height: 80px;
+	width: 180px;
+	background-color: rgba(35, 35, 35, 0.2);
+	padding: 25px;
+	font-size: 30px;
+	text-align: center;
+}
+
+@media screen {
+	body {background-color: #eeeeee;}
+	.tweets {width: 400px; margin-left: auto; margin-right: auto;}
+}
