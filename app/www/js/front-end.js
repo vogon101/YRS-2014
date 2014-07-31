@@ -7,7 +7,7 @@ $(function() {
 	if(!localStorage.stats) {
 		var stats = new Object();
 		$.each(usernames, function(index, value) {
-			stats[value] = 0 
+			stats[value] = {"score":0, "all-likes":0, "all-dislikes":0, "today-score":0, "yesterday-score":0}; 
 		});
 		localStorage.stats = JSON.stringify(stats);
 	}
@@ -62,7 +62,15 @@ $(function() {
 				}
 
 				var stats = JSON.parse(localStorage.stats);
-				stats[$('.tweet.active').parent().attr('class')] += result;
+				stats[$('.tweet.active').parent().attr('class')]['score'] += result;
+				stats[$('.tweet.active').parent().attr('class')]['today-score'] += result;
+				if (result == 1) {
+					stats[$('.tweet.active').parent().attr('class')]['all-likes'] += 1;
+				}
+				if (result == -1) {
+					stats[$('.tweet.active').parent().attr('class')]['all-dislikes'] += 1;
+				}
+				//stats[$('.tweet.active').parent().attr('class')]['score'] += result;
 				localStorage.stats = JSON.stringify(stats);
 
 				$('.tweet.active').parent().animate({marginTop: '-131px'}, 200, function() {
