@@ -93,6 +93,36 @@ a {
 	color: #7bd0c6;
 }
 
+.candidate-border {
+	border: 0;
+}
+
+.candidate {
+	margin: 0;
+	height: 130px;
+	z-index: 100;
+	position: relative;
+	color: #ffffff;
+}
+
+.purple {
+	background-color: #a87edf;
+}
+
+.green {
+	background-color: #89e18a;
+}
+
+.info {
+	position: absolute;
+	left: 0;
+}
+
+.stats {
+	position: absolute;
+	right: 0;
+}
+
 @media screen {
 	body {background-color: #eeeeee;}
 	.tweets {width: 400px; margin-left: auto; margin-right: auto;}
