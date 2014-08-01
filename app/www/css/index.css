@@ -50,7 +50,7 @@ ul li {
 	color: #333333;
 }
 
-.tweet.active {
+.active {
 	font-weight: 400;
 }
 
@@ -105,35 +105,23 @@ li.candidate-entry {
 	color: #ffffff;
 }
 
-.purple {
-	background-color: #a87edf;
-}
-
-.green {
-	background-color: #89e18a;
-}
-
 .info {
-	position: absolute;
-	left: 0;
+	float: left;
 	line-height: 25px;
 	height: 80px;
-	width: 120px;
-	padding: 25px;
-}
-
-.stats {
-	position: absolute;
-	right: 0;
-	height: 80px;
-	width: 180px;
-	background-color: rgba(35, 35, 35, 0.2);
-	padding: 25px;
-	font-size: 30px;
+	width: 55%;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	text-align: center;
 }
 
-@media screen {
-	body {background-color: #eeeeee;}
-	.tweets {width: 400px; margin-left: auto; margin-right: auto;}
+.stats {
+	float: left;
+	height: 80px;
+	width: 45%;
+	background-color: rgba(35, 35, 35, 0.2);
+	font-size: 30px;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
