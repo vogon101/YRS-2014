@@ -80,7 +80,10 @@ function trim (data, callbackfunc) {
 function algo (data, callback) {
 
 	var names =["labour", "conservative", "tory", "liberal democrat", "libdem", "bnp", "ukip", "green party"]; 
-	names.push(usernamesGlobal);
+	$.each(usernamesGlobal, function(i, val) {
+		names.push(val);
+	});
+
 	var done = [];
 	for (var i = 0; i < data.length; i++) {
 		var replace = "<span class='hide'>CENSORED</span>";
