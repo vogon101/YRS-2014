@@ -71,7 +71,7 @@ $(function() {
 				'score': 0,
 				'all-likes': 0,
 				'all-dislikes': 0,
-				'today-score': 5,
+				'today-score': 0,
 				'yesterday-score': 0,
 				'direction': '&#x25B2'
 			}; 
