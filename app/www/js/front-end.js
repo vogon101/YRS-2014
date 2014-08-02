@@ -8,6 +8,12 @@ var candidates = {
 	'party': ['Labour Party', 'Conservative Party']
 };
 
+window.addEventListener('load', function() {
+    document.body.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+   	}, false);
+}, false);
+
 Date.prototype.sameDateAs = function(pDate){
 	return ((this.getFullYear()==pDate.getFullYear())&&(this.getMonth()==pDate.getMonth())&&(this.getDate()==pDate.getDate()));
 }
