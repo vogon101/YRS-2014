@@ -1,7 +1,8 @@
-var search;
+var search, usernamesGlobal;
 
 function startGet (usernames, callback) {
 	var unames = usernames.length;
+	usernamesGlobal = usernames;
 	var count = 0;
 	var done = [];
 
@@ -79,6 +80,7 @@ function trim (data, callbackfunc) {
 function algo (data, callback) {
 
 	var names =["labour", "conservative", "tory", "liberal democrat", "libdem", "bnp", "ukip", "green party"]; 
+	names.push(usernamesGlobal);
 	var done = [];
 	for (var i = 0; i < data.length; i++) {
 		var replace = "<span class='hide'>CENSORED</span>";
